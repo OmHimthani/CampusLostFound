@@ -1,0 +1,299 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  background:
+    radial-gradient(circle at top left, #1b1f3b, #0b1020),
+    radial-gradient(circle at bottom right, #0a0f1f, #000);
+  color: #e5e7eb;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  padding: 28px 22px;
+
+  background: rgba(10, 15, 32, 0.85);
+  backdrop-filter: blur(14px);
+  border-right: 1px solid rgba(148,163,184,0.08);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.HomeLogo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #c7d2fe;
+  margin-bottom: 40px;
+  letter-spacing: 0.4px;
+}
+
+/* =========================
+   MENU
+========================= */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #94a3b8;
+  font-size: 14px;
+
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+.menu a:hover {
+  background: rgba(148,163,184,0.12);
+  color: #e0e7ff;
+}
+
+/* Active */
+.menu a.active {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #020617;
+  font-weight: 700;
+}
+
+/* =========================
+   ADD ITEM TOGGLE
+========================= */
+.menu-toggle {
+  margin-top: 10px;
+}
+
+.toggle-btn {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  background: rgba(99,102,241,0.15);
+  color: #c7d2fe;
+
+  transition: all 0.25s ease;
+}
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Click feedback */
+.toggle-btn:active {
+  transform: scale(0.97);
+}
+
+/* Optional icon rotation (using pseudo) */
+.toggle-btn::after {
+  content: "▾";
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+/* When menu is open */
+.menu-toggle.open .toggle-btn::after {
+  transform: rotate(180deg);
+}
+
+.toggle-btn:hover {
+  background: rgba(99,102,241,0.25);
+}
+
+/* Submenu */
+.submenu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 6px;
+  padding-left: 10px;
+
+  transform: translateY(-6px);
+  transition:
+    max-height 0.35s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Open state */
+.submenu.open {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+  padding-left: 10px;
+}
+
+.submenu a {
+  font-size: 13px;
+  padding: 10px 12px;
+}
+
+/* Open state */
+.submenu.open {
+  display: flex;
+}
+.submenu a {
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.submenu a:hover {
+  background: rgba(99,102,241,0.18);
+  transform: translateX(4px);
+}
+
+
+/* =========================
+   SIDEBAR FOOTER
+========================= */
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.sidebar-footer button{
+ display: block;
+    padding: 12px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #fca5a5;
+    background: rgba(10, 15, 32, 0.85);
+    transition: all 0.25s ease;
+    border: none;
+    box-shadow: 2px 2px 9px 3px #4b4b4b;
+    cursor: pointer;
+}
+
+.sidebar-footer button:hover {
+  background: rgba(239,68,68,0.15);
+  color: #fee2e2;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.content {
+  flex: 1;
+  padding: 50px 60px;
+}
+
+/* Greeting */
+.content h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.content h1 span {
+  color: #818cf8;
+}
+
+/* =========================
+   USER INFO CARD
+========================= */
+.user-info {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 22px;
+  padding: 22px 26px;
+  margin-bottom: 36px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.user-info p {
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* =========================
+   WELCOME BOX
+========================= */
+.welcome-box {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 24px;
+  padding: 30px;
+
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+}
+
+.welcome-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.welcome-box p {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    min-height: auto;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .content {
+    padding: 30px 20px;
+  }
+}
