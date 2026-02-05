@@ -55,29 +55,3 @@ Campus Lost & Found replaces traditional notice boards with a **real-time digita
 
 ---
 
-## 📁 Project Structure
-
-src/
-├── components/
-│ ├── FrontPage.jsx
-│ ├── Login.jsx
-│ ├── SignUp.jsx
-│ ├── Homepage.jsx
-│ ├── LostForm.jsx
-│ ├── FoundForm.jsx
-│ ├── LostItems.jsx
-│ └── FoundItems.jsx
-│
-├── css/
-│ ├── FrontPageStyle.css
-│ ├── LoginStyle.css
-│ ├── SignUpStyle.css
-│ ├── Homepage.css
-│ ├── LostFormStyle.css
-│ ├── FoundFormStyle.css
-│ ├── LostItemsStyle.css
-│ └── FoundItemsStyle.css
-│
-├── client.js # Supabase config
-├── App.jsx
-└── main.jsx
