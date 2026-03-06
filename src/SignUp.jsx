@@ -42,7 +42,8 @@ const SignUp = () => {
           email: SubmitData.email,
           password: SubmitData.password,
           options: {
-            data: { first_name: SubmitData.text }
+            data: { first_name: SubmitData.text },
+            emailRedirectTo: "https://campus-lost-found-iota.vercel.app/Homepage"
           }
         })
         if (error) {
