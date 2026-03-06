@@ -12,15 +12,15 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
+/* 
 body {
  
   overflow-x: hidden;
   background:
     radial-gradient(circle at top left, #1b1f3b, #0b1020),
-    radial-gradient(circle at bottom right, #0a0f1f, #424242);
+    radial-gradient(circle at bottom right, #0a0f1f, #000);
   color: #e5e7eb;
-}
+} */
 
 
 /* =========================
@@ -31,11 +31,12 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-   overflow-x: hidden;
+    overflow-x: hidden;
   background:
     radial-gradient(circle at top left, #1b1f3b, #0b1020),
-    radial-gradient(circle at bottom right, #0a0f1f, #424242);
+    radial-gradient(circle at bottom right, #0a0f1f, #000);
   color: #e5e7eb;
+  background-repeat: no-repeat;
 }
 
 .bg-blobs span {
