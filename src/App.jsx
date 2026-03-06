@@ -7,47 +7,43 @@ import FoundForm from './FoundForm'
 import FoundItems from './FoundItems'
 import LostForm from './LostForm'
 import LostItems from './LostItems'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import supabase from './client'
 import { Navigate } from 'react-router-dom'
+
 const App = () => {
-  const navigate=useNavigate()
-const [mySession,setMySession]=useState(null)
-const getSession = async () => {
-  const { data, error } = await supabase.auth.getSession();
+  const [mySession, setMySession] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  if (error) {
-    console.error(error);
-    return null;
-  }
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data }) => {
+      setMySession(data.session)
+      setLoading(false)
+    })
 
-  if (!data.session) return null;
+    // Listen for login / logout / token refresh events
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setMySession(session)
+    })
 
-  return data.session;
-};
+    return () => listener.subscription.unsubscribe()
+  }, [])
 
-useEffect(() => {
-  const fetchSession = async () => {
-    const session = await getSession();
-    console.log(session);
-    setMySession(session)
-  };
-
-  fetchSession();
-}, []);
+  // Don't render routes until we know the session status
+  if (loading) return null
 
   return (
     <>
       <Routes>
-        <Route path={'/'} element={<FrontPage />} />
-        <Route path={'/login'} element={<Login  />} />
-        <Route path={'/signup'} element={<SignUp />} />
-       <Route path={'/Homepage'} element={mySession ?<Homepage  /> : <Navigate to="/login" />} />
-<Route path={'/FoundForm'} element={mySession ?<FoundForm  />: <Navigate to="/login" />} />
-<Route path={'/FoundItems'} element={mySession ?<FoundItems  />: <Navigate to="/login" />} />
-<Route path={'/LostForm'} element={mySession ?<LostForm  />:<Navigate to="/login" />} />
-<Route path={'/LostItems'} element={mySession ?<LostItems  />: <Navigate to="/login" />} />
-        
+        <Route path='/' element={<FrontPage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/Homepage' element={mySession ? <Homepage /> : <Navigate to="/login" />} />
+        <Route path='/FoundForm' element={mySession ? <FoundForm /> : <Navigate to="/login" />} />
+        <Route path='/FoundItems' element={mySession ? <FoundItems /> : <Navigate to="/login" />} />
+        <Route path='/LostForm' element={mySession ? <LostForm /> : <Navigate to="/login" />} />
+        <Route path='/LostItems' element={mySession ? <LostItems /> : <Navigate to="/login" />} />
       </Routes>
     </>
   )
