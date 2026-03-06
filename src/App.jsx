@@ -12,6 +12,7 @@ import supabase from './client'
 import { Navigate } from 'react-router-dom'
 
 const App = () => {
+  const navigate = useNavigate()
   const [mySession, setMySession] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -20,11 +21,17 @@ const App = () => {
     supabase.auth.getSession().then(({ data }) => {
       setMySession(data.session)
       setLoading(false)
+       if (data.session) {
+      navigate("/Homepage")
+    }
     })
 
     // Listen for login / logout / token refresh events
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setMySession(session)
+       if (session) {
+      navigate("/Homepage")
+    }
     })
 
     return () => listener.subscription.unsubscribe()
