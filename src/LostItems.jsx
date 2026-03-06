@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './css/LostItemsStyle.css'
+import './LostItemsStyle.css'
 import supabase from './client'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -65,11 +65,12 @@ const LostItems = () => {
             {lostData.map((value) => (
               <div className="item-card" key={value.id}>
                 <div className="image-wrapper">
-                  <img src={value.image_url} alt={value.item_name} />
+                  <img src={value.image_url} alt={value.item_name} className="img-bg" />
+                  <img src={value.image_url} alt={value.item_name} className="img-main" />
                 </div>
                 <div className="card-body">
                   <h3>{value.item_name}</h3>
-                  
+                  <p><strong>📍 Last Seen:</strong><br />{value.place_found || "Not specified"}</p>
                   <p><strong>👤 Contact Name:</strong><br />{value.owner_name}</p>
                   <p><strong>📞 Contact Number:</strong><br />{value.owner_phone}</p>
                   <p className="description"><strong>📝 Description:</strong><br />{value.description}</p>

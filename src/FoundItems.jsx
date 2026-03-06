@@ -65,7 +65,8 @@ const FoundItems = () => {
             {foundData.map((value) => (
               <div className="item-card" key={value.id}>
                 <div className="image-wrapper">
-                  <img src={value.image_url} alt={value.item_name} />
+                  <img src={value.image_url} alt={value.item_name} className="img-bg" />
+                  <img src={value.image_url} alt={value.item_name} className="img-main" />
                 </div>
                 <div className="card-body">
                   <h3>{value.item_name}</h3>
