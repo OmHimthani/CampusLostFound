@@ -10,7 +10,7 @@ const LostItems = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const fetchLostData = async () => {
-    const { data, error } = await supabase.from("LostTable").select("*").order("created_at", { ascending: true })
+    const { data, error } = await supabase.from("LostTable").select("*").order("created_at", { ascending: false })
     if (error) { console.error(error); return }
     setLostData(data)
   }

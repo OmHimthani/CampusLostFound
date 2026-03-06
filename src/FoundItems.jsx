@@ -10,7 +10,7 @@ const FoundItems = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const fetchFoundData = async () => {
-    const { data, error } = await supabase.from("FoundTable").select("*").order("created_at", { ascending: true })
+    const { data, error } = await supabase.from("FoundTable").select("*").order("created_at", { ascending: false })
     if (error) { console.error(error); return }
     setFoundData(data)
   }
