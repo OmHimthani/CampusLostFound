@@ -7,9 +7,9 @@ import FoundForm from './FoundForm'
 import FoundItems from './FoundItems'
 import LostForm from './LostForm'
 import LostItems from './LostItems'
-import { Route, Routes } from 'react-router-dom'
+// import { Route, Routes } from 'react-router-dom'
 import supabase from './client'
-import { Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom"
 
 const App = () => {
   const navigate = useNavigate()
