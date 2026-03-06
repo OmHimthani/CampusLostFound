@@ -14,12 +14,14 @@ html {
 }
 
 body {
+ 
   overflow-x: hidden;
   background:
     radial-gradient(circle at top left, #1b1f3b, #0b1020),
-    radial-gradient(circle at bottom right, #0a0f1f, #393838);
+    radial-gradient(circle at bottom right, #0a0f1f, #000);
   color: #e5e7eb;
 }
+
 
 /* =========================
    BACKGROUND BLOBS
