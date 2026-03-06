@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './LostItemsStyle.css'
+import './css/LostItemsStyle.css'
 import supabase from './client'
 import { useNavigate, Link } from 'react-router-dom'
 
