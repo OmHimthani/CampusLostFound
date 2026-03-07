@@ -50,7 +50,7 @@ const SignUp = () => {
           console.error(error)
           return
         }
-        alert("User created , check your email")
+        alert("User successfully created , check your email ")
         navigate('/')
       } catch (error) {
         alert(error)
